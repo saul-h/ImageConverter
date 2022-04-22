@@ -17,14 +17,21 @@ fileList = [
 
 convertImage =[
     [
-        sg.Text("Convert: "),
+        sg.Text('Convert: '),
         sg.Text(size=(40, 1), key="-IMAGE PATH-")
     ],
     [
         sg.Text("To: "),
-        sg.DropDown(['Choice 1', 'Choice 2'], key="-IMAGE FORMAT-")
+        sg.DropDown(
+            ['Choice 1', 'Choice 2'], enable_events = False, key="-IMAGE FORMAT-"
+        )
     ],
-    [sg.Image(key="-IMAGE PREVIEW-")],
+    [
+        sg.Image(key="-IMAGE PREVIEW-")
+    ],
+    [
+        sg.SaveAs(key="-SAVE BUTTON-")
+    ],
 ]
 
 layout = [
