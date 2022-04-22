@@ -1,5 +1,43 @@
-from PIL import PIL
+from PIL import Image
 import os.path
 import PySimpleGUI as sg
 
-sg.Window(title="Image Converter", layout=[[]], margins=(100, 50)).read()
+fileList = [
+    [
+        sg.Text('Image:'),
+        sg.In(size = (25, 1), enable_events = True, key = '-FOLDER-'),
+        sg.FolderBrowse(),
+    ],
+    [
+        sg.Listbox(
+            values = [], enable_events = True, size = (40, 20), key = '-FILE LIST-'
+        )
+    ],
+]
+
+convertImage =[
+    [
+        sg.Text("Convert: "),
+        sg.Text(size=(40, 1), key="-IMAGE PATH-")
+    ],
+    [
+        sg.Text("To: "),
+        sg.DropDown(['Choice 1', 'Choice 2'], key="-IMAGE FORMAT-")
+    ],
+    [sg.Image(key="-IMAGE PREVIEW-")],
+]
+
+layout = [
+    [
+        sg.Column(fileList),
+        sg.VSeperator(),
+        sg.Column(convertImage),
+    ]
+]
+
+window = sg.Window("Image Converter", layout)
+
+while True:
+    event, values = window.read()
+    if event == "Exit" or event == sg.WIN_CLOSED:
+        break
