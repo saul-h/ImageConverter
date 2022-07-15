@@ -15,22 +15,22 @@ fileList = [
     ],
 ]
 
-convertImage =[
+convertImage = [
     [
         sg.Text('Convert: '),
-        sg.Text(size=(40, 1), key="-IMAGE PATH-")
+        sg.Text(size=(40, 1), key='-IMAGE PATH-')
     ],
     [
-        sg.Text("To: "),
+        sg.Text('To: '),
         sg.DropDown(
-            ['Choice 1', 'Choice 2'], enable_events = False, key="-IMAGE FORMAT-"
+            ['Select an Image'], enable_events = False, key='-IMAGE FORMAT-'
         )
     ],
     [
-        sg.Image(key="-IMAGE PREVIEW-")
+        sg.Image(key='-IMAGE PREVIEW-')
     ],
     [
-        sg.SaveAs(key="-SAVE BUTTON-")
+        sg.SaveAs(key='-SAVE BUTTON-')
     ],
 ]
 
@@ -42,9 +42,10 @@ layout = [
     ]
 ]
 
-window = sg.Window("Image Converter", layout)
+window = sg.Window('Image Converter', layout)
 
 while True:
     event, values = window.read()
-    if event == "Exit" or event == sg.WIN_CLOSED:
+    if event == 'Exit' or event == sg.WIN_CLOSED:
         break
+    if event == 
